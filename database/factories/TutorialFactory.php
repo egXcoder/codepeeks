@@ -23,9 +23,8 @@ class TutorialFactory extends Factory
     public function definition()
     {
         return [
-            'name'=>$this->faker->word(2),
+            'name'=>$this->faker->words(3, true),
             'description'=>$this->faker->paragraph(20),
-            'color'=>$this->faker->hexColor,
             'order'=>rand(0, 1000),
             'topic_id'=>Topic::inRandomOrder()->first()->id,
         ];

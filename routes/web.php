@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\Home\TutorialController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', HomeController::class);
+Route::get('/{topic:name}/{tutorialName?}', [TutorialController::class,'show'])->name('home.tutorial');

@@ -25,7 +25,7 @@ class CreateTutorialsTable extends Migration
             $table->foreign('topic_id')->references('id')->on('topics');
         });
 
-        DB::statement('ALTER TABLE tutoials ADD FULLTEXT full(description)');
+        DB::statement('ALTER TABLE tutorials ADD FULLTEXT full(description)');
     }
 
     /**

@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Topic;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Arr;
 
 class TopicFactory extends Factory
 {
@@ -24,8 +25,8 @@ class TopicFactory extends Factory
         return [
             'name'=>$this->faker->word,
             'description'=>$this->faker->sentence,
-            'color'=>$this->faker->hexColor,
-            'order'=>rand(0,1000)
+            'order'=>rand(0, 1000),
+            'image_url'=>$this->faker->imageUrl(200,200)
         ];
     }
 }

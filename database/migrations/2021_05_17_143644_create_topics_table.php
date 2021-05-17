@@ -15,9 +15,9 @@ class CreateTopicsTable extends Migration
     {
         Schema::create('topics', function (Blueprint $table) {
             $table->id();
+            $table->string('image_url');
             $table->string('name');
             $table->string('description');
-            $table->string('color');
             $table->unsignedInteger('order');
             $table->timestamps();
         });

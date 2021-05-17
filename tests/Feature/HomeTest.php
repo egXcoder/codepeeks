@@ -8,15 +8,13 @@ use Tests\TestCase;
 
 class HomeTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function test_example()
+    /** @test */
+    public function homeScreenHasTopicNames()
     {
+        //given we go to home screen 
         $response = $this->get('/');
 
+        //assert see topic name
         $response->assertStatus(200);
     }
 }
