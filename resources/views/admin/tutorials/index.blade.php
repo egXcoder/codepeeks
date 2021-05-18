@@ -19,8 +19,9 @@
                 <td>{{$tutorial->id}}</td>
                 <td>{{$tutorial->name}}</td>
                 <td class="d-flex">
-                    {{-- <a class="mx-1 btn btn-success" href="{{route('admin.tutorials.create',$topic->id)}}">Edit</a>
-                    --}}
+                    <a class="mx-1 btn btn-success"
+                        href="{{route('admin.tutorials.edit',[$topic->id,$tutorial->id])}}">Edit</a>
+
                     <form action="{{route('admin.tutorials.up',$tutorial->id)}}" method="Post">
                         @csrf
                         <button class="mx-1 btn btn-primary">Up</button>

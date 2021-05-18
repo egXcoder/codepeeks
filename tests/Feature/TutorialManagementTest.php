@@ -91,4 +91,27 @@ class TutorialManagementTest extends TestCase
 
         $this->assertEquals('hello', Tutorial::first()->name);
     }
+
+    /** @test */
+    public function user_can_visit_edit_screen()
+    {
+        $tutorial = Tutorial::factory()->create();
+
+        $this->get(route('admin.tutorials.edit', [$this->topic->id,$tutorial->id]))
+            ->assertSee('button');
+    }
+
+    /** @test */
+    public function user_can_update_screen()
+    {
+        $tutorial = Tutorial::factory()->create();
+
+        $this->put(route('admin.tutorials.update', [$this->topic->id,$tutorial->id]), [
+            'name'=>'hello',
+            'description'=>'description'
+        ]);
+
+        $tutorial->refresh();
+        $this->assertEquals('hello', $tutorial->name);
+    }
 }

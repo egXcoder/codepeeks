@@ -76,9 +76,9 @@ class TutorialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Topic $topic, Tutorial $tutorial)
     {
-        //
+        return view('admin.tutorials.edit', ['topic'=>$topic,'tutorial'=>$tutorial]);
     }
 
     /**
@@ -88,9 +88,20 @@ class TutorialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Topic $topic, Tutorial $tutorial)
     {
-        //
+        request()->validate([
+            'name'=>'required|string',
+            'description'=>'required|string'
+        ]);
+
+        $tutorial->update([
+            'name'=>request('name'),
+            'description'=>request('description'),
+        ]);
+
+        return redirect(route('admin.tutorials.index', $topic->id))
+            ->with(['success'=>'Tutorial is updated successfully']);
     }
 
     /**
