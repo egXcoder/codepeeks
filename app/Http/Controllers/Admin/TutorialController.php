@@ -17,7 +17,10 @@ class TutorialController extends Controller
      */
     public function index(Topic $topic)
     {
-        return view('admin.tutorials.index', ['topic'=>$topic]);
+        return view('admin.tutorials.index', [
+            'topic'=>$topic,
+            'tutorials'=>$topic->tutorials()->orderBy('order')->get()
+        ]);
     }
 
     /**
@@ -25,9 +28,9 @@ class TutorialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Topic $topic)
     {
-        //
+        return view('admin.tutorials.create', ['topic'=>$topic]);
     }
 
     /**
@@ -36,9 +39,24 @@ class TutorialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Topic $topic)
     {
-        //
+        request()->validate([
+            'name'=> 'required|string',
+            'description'=>'required|string'
+        ]);
+
+        $tutorial = Tutorial::where('topic_id', $topic->id)->orderBy('order', 'desc')->first();
+
+        Tutorial::create([
+            'name'=>request('name'),
+            'description'=>request('description'),
+            'topic_id'=>$topic->id,
+            'order'=>($tutorial->order??0) +1
+        ]);
+
+        return redirect(route('admin.tutorials.index', $topic->id))
+                ->with(['success'=>'Tutorial is created successfully']);
     }
 
     /**
@@ -88,7 +106,10 @@ class TutorialController extends Controller
 
     public function up(Tutorial $tutorial)
     {
-        $predecessor = Tutorial::where('order', '<', $tutorial->order)->orderBy('order', 'DESC')->first();
+        $predecessor = Tutorial::where('topic_id', $tutorial->topic->id)
+            ->where('order', '<', $tutorial->order)
+            ->orderBy('order', 'DESC')
+            ->first();
 
         if (!$predecessor) {
             return back()->withErrors('Topic is already the first in order');
@@ -103,7 +124,9 @@ class TutorialController extends Controller
 
     public function down(Tutorial $tutorial)
     {
-        $successor = Tutorial::where('order', '>', $tutorial->order)->first();
+        $successor = Tutorial::where('topic_id', $tutorial->topic->id)
+            ->where('order', '>', $tutorial->order)
+            ->first();
 
         if (!$successor) {
             return back()->withErrors('Topic is already the last in order');

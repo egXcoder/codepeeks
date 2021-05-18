@@ -14,11 +14,13 @@
             <th style="min-width:350px">Actions</th>
         </thead>
         <tbody>
-            @foreach($topic->tutorials as $tutorial)
+            @foreach($tutorials as $tutorial)
             <tr>
                 <td>{{$tutorial->id}}</td>
                 <td>{{$tutorial->name}}</td>
                 <td class="d-flex">
+                    {{-- <a class="mx-1 btn btn-success" href="{{route('admin.tutorials.create',$topic->id)}}">Edit</a>
+                    --}}
                     <form action="{{route('admin.tutorials.up',$tutorial->id)}}" method="Post">
                         @csrf
                         <button class="mx-1 btn btn-primary">Up</button>
@@ -32,5 +34,7 @@
             @endforeach
         </tbody>
     </table>
+    <a class="btn btn-success" href="{{route('admin.tutorials.create',$topic->id)}}"><i class="fas fa-plus"></i> Create
+        Tutorial</a>
 </div>
 @endsection

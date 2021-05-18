@@ -74,4 +74,21 @@ class TutorialManagementTest extends TestCase
 
         $this->post(route('admin.tutorials.down', $tutorial_2->id))->assertSessionHasErrors();
     }
+
+    /** @test */
+    public function user_can_visit_create_tutorial()
+    {
+        $this->get(route('admin.tutorials.create', $this->topic->id))->assertSee('button');
+    }
+
+    /** @test */
+    public function user_can_store_tutorial()
+    {
+        $this->post(route('admin.tutorials.store', $this->topic->id), [
+            'name'=>'hello',
+            'description'=>'description'
+        ]);
+
+        $this->assertEquals('hello', Tutorial::first()->name);
+    }
 }
