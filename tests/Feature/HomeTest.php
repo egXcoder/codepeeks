@@ -2,8 +2,9 @@
 
 namespace Tests\Feature;
 
+use App\Models\Topic;
+use App\Models\Tutorial;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class HomeTest extends TestCase
@@ -13,10 +14,30 @@ class HomeTest extends TestCase
     /** @test */
     public function homeScreenHasTopicNames()
     {
-        //given we go to home screen 
-        $response = $this->get('/');
+        $topic = Topic::factory()->create();
+        $response = $this->get('/')->assertSee($topic->name);
+    }
 
-        //assert see topic name
-        $response->assertStatus(200);
+    /** @test */
+    public function topicScreenShowListOfTutorials()
+    {
+        $topic = Topic::factory()->create();
+        $tutorial_1 = Tutorial::factory()->create(['topic_id'=>$topic->id]);
+        $tutorial_2 = Tutorial::factory()->create(['topic_id'=>$topic->id]);
+
+        $this->get(route('home.tutorials', $topic->name))
+            ->assertSee($tutorial_1->name)
+            ->assertSee($tutorial_2->name);
+    }
+
+    /** @test */
+    public function tutorialScreenShowItsNameAndDescription()
+    {
+        $topic = Topic::factory()->create();
+        $tutorial_1 = Tutorial::factory()->create(['topic_id'=>$topic->id]);
+
+        $this->get(route('home.tutorials', [$topic->name,$tutorial_1->name]))
+            ->assertSee($tutorial_1->name)
+            ->assertSee($tutorial_1->description);
     }
 }

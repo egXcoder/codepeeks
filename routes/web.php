@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\TopicController;
 use App\Http\Controllers\Admin\TutorialController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\Home\TutorialController as HomeTutorialController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,4 +45,4 @@ Route::prefix('admin')->group(function () {
 
 
 Route::get('/', HomeController::class);
-Route::get('/{topic:name}/{tutorialName?}', [TutorialController::class,'show'])->name('home.tutorial');
+Route::get('/{topic:name}/{tutorialName?}', [HomeTutorialController::class,'show'])->name('home.tutorials');

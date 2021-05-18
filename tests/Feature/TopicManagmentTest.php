@@ -110,14 +110,12 @@ class TopicManagmentTest extends TestCase
     {
         $topic = Topic::factory()->create();
 
-        $this->put(route('admin.topics.update',$topic->id),[
+        $this->put(route('admin.topics.update', $topic->id), [
             'name'=>'hello',
             'description'=>'description',
-            'image'=>UploadedFile::fake()->image('avatar.png')
         ]);
         
         $topic->refresh();
-        $this->assertEquals('hello',$topic->name);
-        unlink(public_path("images/" . time() . '.png'));
+        $this->assertEquals('hello', $topic->name);
     }
 }

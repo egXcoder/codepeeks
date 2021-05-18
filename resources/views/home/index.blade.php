@@ -12,7 +12,7 @@
                     <img src="/{{$topic->image_url}}" class="img-fluid">
                     <h3>{{$topic->name}}</h3>
                     <p>{{$topic->description}}</p>
-                    <a class="btn btn-primary px-3" href="{{route('home.tutorial',$topic->name)}}">Learn
+                    <a class="btn btn-primary px-3" href="{{route('home.tutorials',$topic->name)}}">Learn
                         {{$topic->name}}</a>
                 </div>
                 @endforeach

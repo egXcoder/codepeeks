@@ -37,7 +37,7 @@ class TopicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
         request()->validate([
             'name'=>'required|string|unique:topics',
@@ -45,7 +45,7 @@ class TopicController extends Controller
             'image'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        $imageName = time().'.'.$request->image->extension();
+        $imageName = time().'.'.request('image')->extension();
         request('image')->move(public_path('images'), $imageName);
 
         Topic::create([
