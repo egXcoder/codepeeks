@@ -7,7 +7,6 @@
         background-color: var(--primary-color);
         height: 100vh;
         overflow: auto;
-        padding: 1rem;
         position: sticky;
         top: 0;
         .commands {
@@ -15,18 +14,22 @@
             flex-flow: column;
             .action {
                 text-decoration: none;
-                padding: 0.5rem;
-                background-color: var(--secondary-color);
+                padding: 1rem;
                 color: white;
-                margin-top: 4px;
-                margin-bottom: 4px;
                 width: 100%;
                 text-align: left;
+                border-radius: 0px;
+                transition: all 0.3s;
+                &:hover {
+                    background-color: var(--secondary-color);
+                }
+                &.active {
+                    background-color: var(--secondary-color);
+                }
             }
         }
     }
 
-    .dashboard-screen{
-        
+    .dashboard-screen {
     }
 }

@@ -8,6 +8,8 @@ use Tests\TestCase;
 
 class HomeTest extends TestCase
 {
+    use RefreshDatabase;
+
     /** @test */
     public function homeScreenHasTopicNames()
     {

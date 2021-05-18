@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
@@ -25,7 +26,9 @@ class CreateTutorialsTable extends Migration
             $table->foreign('topic_id')->references('id')->on('topics');
         });
 
-        DB::statement('ALTER TABLE tutorials ADD FULLTEXT full(description)');
+        if (!App::runningUnitTests()){
+            DB::statement('ALTER TABLE tutorials ADD FULLTEXT full(description)');
+        }
     }
 
     /**

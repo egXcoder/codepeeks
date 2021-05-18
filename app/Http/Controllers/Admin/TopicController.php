@@ -28,7 +28,7 @@ class TopicController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.topics.create');
     }
 
     /**
@@ -39,7 +39,23 @@ class TopicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'name'=>'required|string|unique:topics',
+            'description'=>'required|string|max:255',
+            'image'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+
+        $imageName = time().'.'.$request->image->extension();
+        request('image')->move(public_path('images'), $imageName);
+
+        Topic::create([
+            'name'=>request('name'),
+            'description'=>request('description'),
+            'image_url'=>"images/$imageName",
+            'order'=> Topic::orderBy('order', 'desc')->first()->order ?? 0 + 1,
+        ]);
+
+        return redirect(route('admin.topics.index'))->with(['success'=>'Topic is created successfully']);
     }
 
     /**
@@ -111,7 +127,7 @@ class TopicController extends Controller
         }
 
         DB::transaction(function () use ($topic, $successor) {
-            $this->exchangeOrder($topic,$successor);
+            $this->exchangeOrder($topic, $successor);
         });
 
         return back()->with('success', 'Topic is ordered up successfully');

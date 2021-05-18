@@ -5,6 +5,8 @@ namespace Tests\Feature;
 use App\Models\Topic;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
 class TopicManagmentTest extends TestCase
@@ -74,5 +76,26 @@ class TopicManagmentTest extends TestCase
         $topic_2 = Topic::factory()->create(['order'=>2]);
 
         $this->post(route('admin.topics.down', $topic_2->id))->assertSessionHasErrors();
+    }
+
+    /** @test */
+    public function user_can_visit_create_topic_screen()
+    {
+        $this->get(route('admin.topics.create'))->assertSee('button');
+    }
+
+    /** @test */
+    public function user_can_store_topic()
+    {
+        $this->post(route('admin.topics.store'), [
+            'name'=>'hello world',
+            'description'=>'description',
+            'image'=> UploadedFile::fake()->image('avatar.png')
+        ]);
+
+        $this->assertEquals('hello world', Topic::first()->name);
+        $this->assertEquals('description', Topic::first()->description);
+
+        unlink(public_path("/images/" .time() . ".png"));
     }
 }

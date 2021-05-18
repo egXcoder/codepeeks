@@ -11,6 +11,7 @@
     <table class="table">
         <thead>
             <th>ID</th>
+            <th>Image</th>
             <th>Name</th>
             <th>Description</th>
             <th style="min-width:350px">Actions</th>
@@ -19,6 +20,7 @@
             @foreach($topics as $topic)
             <tr>
                 <td>{{$topic->id}}</td>
+                <td><img src="{{asset($topic->image_url)}}" style="height: 40px"></td>
                 <td>{{$topic->name}}</td>
                 <td>{{$topic->description}}</td>
                 <td class="d-flex">
