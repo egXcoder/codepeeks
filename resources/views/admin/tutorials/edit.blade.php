@@ -5,7 +5,7 @@
     @csrf
     @method('put')
 
-    <div class="form-group my-2">
+    <div class="form-group m-2">
         <label for='name'>Name</label>
         <input value="{{$tutorial->name??old('name')}}" name="name" type="text"
             class="form-control @error('name') is-invalid @enderror" required autocomplete="off">
@@ -16,10 +16,14 @@
         @enderror
     </div>
 
-    <div class="form-group my-2">
-        <label for="">Description</label>
+    <div id="toolbar-container"></div>
+    <!-- This container will become the editable. -->
+    <div id="editor"></div>
+
+    <div class="form-group m-2">
+        <label for="description">Description</label>
         <textarea name="description" rows="20"
-            class="form-control @error('description') is-invalid @enderror">{{$tutorial->description ?? old('description')}}</textarea>
+            class="form-control @error('description') is-invalid @enderror">{!!$tutorial->description ?? old('description')!!}</textarea>
         @error('description')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message}}</strong>
@@ -27,6 +31,22 @@
         @enderror
     </div>
 
-    <button class="btn btn-primary">Submit</button>
+    <button class="btn btn-primary m-2">Submit</button>
 </form>
+<script>
+    // Alternative to load event
+    document.onreadystatechange = function () {
+        if (document.readyState === 'complete') {
+            ClassicEditor
+            .create( document.querySelector( 'textarea' ) )
+            .then( editor => {
+                console.log( editor );
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
+        }
+    }
+    
+</script>
 @endsection
