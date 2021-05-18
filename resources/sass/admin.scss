@@ -1,0 +1,30 @@
+@import "variables";
+@import "bootstrap";
+@import "@fortawesome/fontawesome-free/css/all";
+
+.admin {
+    .commands-container {
+        background-color: var(--primary-color);
+        height: 100vh;
+        overflow: auto;
+        padding: 1rem;
+        .commands {
+            display: flex;
+            flex-flow: column;
+            .action {
+                text-decoration: none;
+                padding: 0.5rem;
+                background-color: var(--secondary-color);
+                color: white;
+                margin-top: 4px;
+                margin-bottom: 4px;
+                width: 100%;
+                text-align: left;
+            }
+        }
+    }
+
+    .dashboard-screen{
+        
+    }
+}
