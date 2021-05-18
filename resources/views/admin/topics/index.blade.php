@@ -24,7 +24,8 @@
                 <td>{{$topic->name}}</td>
                 <td>{{$topic->description}}</td>
                 <td class="d-flex">
-                    <a class="mx-1 btn btn-success" href="">View Tutorials</a>
+                    <a class="mx-1 btn btn-success" href="{{route('admin.tutorials.index',$topic->id)}}">View
+                        Tutorials</a>
                     <a class="mx-1 btn btn-success" href="{{route('admin.topics.edit',$topic->id)}}">Edit</a>
                     <form action="{{route('admin.topics.up',$topic->id)}}" method="POST">
                         @csrf

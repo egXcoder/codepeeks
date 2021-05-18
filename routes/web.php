@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\TopicController;
+use App\Http\Controllers\Admin\TutorialController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Home\HomeController;
-use App\Http\Controllers\Home\TutorialController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,21 +21,25 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('admin')->group(function () {
     // Login Routes...
     Route::get('login', [LoginController::class,'showLoginForm'])->name('login');
-    Route::post('login',[LoginController::class,'login']);
+    Route::post('login', [LoginController::class,'login']);
     
-    Route::middleware('auth')->group(function(){
+    Route::middleware('auth')->group(function () {
         Route::post('logout', [LoginController::class,'logout'])->name('logout');
     });
 
 
-    Route::middleware('auth')->name('admin.')->group(function(){    
+    Route::middleware('auth')->name('admin.')->group(function () {
         Route::get('/', DashboardController::class)->name('index');
-        Route::resource('topics',TopicController::class);
-        Route::post('topics/{topic}/up',[TopicController::class,'up'])->name('topics.up');
-        Route::post('topics/{topic}/down',[TopicController::class,'down'])->name('topics.down');
-    });
+        
+        Route::resource('topics', TopicController::class);
+        Route::post('topics/{topic}/up', [TopicController::class,'up'])->name('topics.up');
+        Route::post('topics/{topic}/down', [TopicController::class,'down'])->name('topics.down');
 
-});    
+        Route::resource('topics/{topic}/tutorials', TutorialController::class);
+        Route::post('tutorials/{tutorial}/up', [TutorialController::class,'up'])->name('tutorials.up');
+        Route::post('tutorials/{tutorial}/down', [TutorialController::class,'down'])->name('tutorials.down');
+    });
+});
 
 
 
