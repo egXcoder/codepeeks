@@ -31,6 +31,8 @@ Route::prefix('admin')->group(function () {
     Route::middleware('auth')->name('admin.')->group(function(){    
         Route::get('/', DashboardController::class)->name('index');
         Route::resource('topics',TopicController::class);
+        Route::post('topics/{topic}/up',[TopicController::class,'up'])->name('topics.up');
+        Route::post('topics/{topic}/down',[TopicController::class,'down'])->name('topics.down');
     });
 
 });    

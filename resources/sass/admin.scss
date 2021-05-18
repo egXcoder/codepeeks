@@ -8,6 +8,8 @@
         height: 100vh;
         overflow: auto;
         padding: 1rem;
+        position: sticky;
+        top: 0;
         .commands {
             display: flex;
             flex-flow: column;

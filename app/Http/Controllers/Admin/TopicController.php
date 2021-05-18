@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Topic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TopicController extends Controller
 {
@@ -15,8 +16,8 @@ class TopicController extends Controller
      */
     public function index()
     {
-        return view('admin.topics.index',[
-            'topics'=>Topic::all()
+        return view('admin.topics.index', [
+            'topics'=>Topic::orderBy('order')->get()
         ]);
     }
 
@@ -84,5 +85,42 @@ class TopicController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function up(Topic $topic)
+    {
+        $predecessor = Topic::where('order', '<', $topic->order)->orderBy('order', 'DESC')->first();
+
+        if (!$predecessor) {
+            return back()->withErrors('Topic is already the first in order');
+        }
+
+        DB::transaction(function () use ($topic, $predecessor) {
+            $this->exchangeOrder($topic, $predecessor);
+        });
+
+        return back()->with('success', 'Topic is ordered up successfully');
+    }
+
+    public function down(Topic $topic)
+    {
+        $successor = Topic::where('order', '>', $topic->order)->first();
+
+        if (!$successor) {
+            return back()->withErrors('Topic is already the last in order');
+        }
+
+        DB::transaction(function () use ($topic, $successor) {
+            $this->exchangeOrder($topic,$successor);
+        });
+
+        return back()->with('success', 'Topic is ordered up successfully');
+    }
+
+    protected function exchangeOrder($topic, $anotherTopic)
+    {
+        $topic_order = $topic->order;
+        $topic->update(['order'=>$anotherTopic->order]);
+        $anotherTopic->update(['order'=>$topic_order]);
     }
 }
