@@ -6,7 +6,6 @@ use App\Models\Topic;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
 class TopicManagmentTest extends TestCase
@@ -97,5 +96,28 @@ class TopicManagmentTest extends TestCase
         $this->assertEquals('description', Topic::first()->description);
 
         unlink(public_path("/images/" .time() . ".png"));
+    }
+
+    /** @test */
+    public function user_can_visit_edit_topic_screen()
+    {
+        $topic = Topic::factory()->create();
+        $this->get(route('admin.topics.edit', $topic->id))->assertSee('button');
+    }
+
+    /** @test */
+    public function user_can_update_topic()
+    {
+        $topic = Topic::factory()->create();
+
+        $this->put(route('admin.topics.update',$topic->id),[
+            'name'=>'hello',
+            'description'=>'description',
+            'image'=>UploadedFile::fake()->image('avatar.png')
+        ]);
+        
+        $topic->refresh();
+        $this->assertEquals('hello',$topic->name);
+        unlink(public_path("images/" . time() . '.png'));
     }
 }

@@ -18,12 +18,13 @@
                         <img src="{{asset('images/brand.png')}}" style="height: 50px;text-align:center;">
                         <p class="mb-0 text-white">Administration</p>
                     </div>
-                    <hr>
+                    <hr style="color: white">
                     <div class="commands">
-                        <a class="action @if(Route::currentRouteName() == 'admin.index') active @endif" href="{{route('admin.index')}}"><i
-                                class="fas fa-home"></i>
+                        <a class="action @if(Route::currentRouteName() == 'admin.index') active @endif"
+                            href="{{route('admin.index')}}"><i class="fas fa-home"></i>
                             Dashboard</a>
-                        <a class="action @if(Route::currentRouteName() == 'admin.topics.index') active @endif" href="{{route('admin.topics.index')}}"><i class="fas fa-border-all"></i> All
+                        <a class="action @if(Route::currentRouteName() == 'admin.topics.index') active @endif"
+                            href="{{route('admin.topics.index')}}"><i class="fas fa-border-all"></i> All
                             Topics</a>
                         <form action="{{route('logout')}}" method="POST">
                             @csrf

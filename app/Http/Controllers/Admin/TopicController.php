@@ -75,9 +75,9 @@ class TopicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Topic $topic)
     {
-        //
+        return view('admin.topics.edit', ['single'=>$topic]);
     }
 
     /**
@@ -87,9 +87,33 @@ class TopicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Topic $topic)
     {
-        //
+        request()->validate([
+            'name'=>'required|string',
+            'description'=>'required|string',
+        ]);
+
+        
+        $inputs = [
+            'name'=>request('name'),
+            'description'=>request('description'),
+        ];
+        
+        if (request('image')) {
+            request()->validate(['image'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048']);
+            
+            $imageName = time().'.'.request('image')->extension();
+            request('image')->move(public_path('images'), $imageName);
+
+            $inputs = array_merge($inputs, [
+                'image_url'=> "images/$imageName",
+            ]);
+        }
+
+        $topic->update($inputs);
+
+        return redirect(route('admin.topics.index'))->with(['success'=>'Topic is updated successfully']);
     }
 
     /**
