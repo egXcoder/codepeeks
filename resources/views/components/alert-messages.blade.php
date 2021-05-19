@@ -11,7 +11,7 @@
         <use xlink:href="#check-circle-fill" /></svg>
     <strong>Success</strong>
     <hr>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close"></button>
     <ul>
         <li>{{session('success')}}</li>
     </ul>
@@ -33,7 +33,7 @@
 
     <strong>Error</strong>
     <hr>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close"></button>
     <ul>
         @foreach ($errors->all() as $error)
         <li>{{$error}}</li>
