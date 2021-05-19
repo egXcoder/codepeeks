@@ -10007,6 +10007,9 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.home {
+  background-color: #eee;
+}
 .home nav {
   background-color: var(--primary-color);
 }
@@ -10054,7 +10057,7 @@ h3 {
   min-height: 120px;
 }
 .home .index .all-topics .topic .content h3 {
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 .home .index .all-topics .topic .btn {
   background: var(--secondary-color);

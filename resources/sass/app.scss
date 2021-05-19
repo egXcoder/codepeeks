@@ -2,6 +2,7 @@
 @import "~bootstrap";
 
 .home {
+    background-color: #eee;
     nav {
         background-color: var(--primary-color);
         .brand {
@@ -51,7 +52,7 @@
                 .content {
                     min-height: 120px;
                     h3 {
-                        text-transform: capitalize;
+                        text-transform: uppercase;
                     }
                 }
                 .btn {
