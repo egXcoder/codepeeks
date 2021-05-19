@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\Topic;
 use App\Models\Tutorial;
+use App\Models\TutorialView;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -39,5 +40,14 @@ class HomeTest extends TestCase
         $this->get(route('home.tutorials', [$topic->name,$tutorial_1->name]))
             ->assertSee($tutorial_1->name)
             ->assertSee($tutorial_1->description);
+    }
+
+    /** @test */
+    public function when_user_visit_tutorial_it_will_be_recorded_in_db()
+    {
+        $topic = Topic::factory()->create();
+        $tutorial = Tutorial::factory()->create(['topic_id'=>$topic->id]);
+        $this->get(route('home.tutorials',[$topic->name,$tutorial->name]));
+        $this->assertEquals(1,TutorialView::count());
     }
 }

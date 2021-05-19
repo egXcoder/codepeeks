@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use App\Models\Topic;
+use App\Models\TutorialView;
 
 class TutorialController extends Controller
 {
@@ -14,6 +15,7 @@ class TutorialController extends Controller
         }
 
         if ($tutorial = $this->getTutorialFromTopic($topic, $tutorialName)) {
+            $this->recordView($tutorial);
             return view('home.tutorial', [
                 'topic'=>$topic,
                 'tutorial'=>$tutorial
@@ -26,5 +28,13 @@ class TutorialController extends Controller
     protected function getTutorialFromTopic(Topic $topic, $tutorialName)
     {
         return $topic->tutorials->where('name', $tutorialName)->first();
+    }
+
+    protected function recordView($tutorial)
+    {
+        TutorialView::create([
+            'tutorial_id'=>$tutorial->id,
+            'created_at'=>date('Y-m-d H:i:s')
+        ]);
     }
 }
