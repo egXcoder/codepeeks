@@ -10008,7 +10008,7 @@ h3 {
   }
 }
 .home {
-  background-color: #eee;
+  background-color: #f7f7f7;
 }
 .home nav {
   background-color: var(--primary-color);
@@ -10038,10 +10038,16 @@ h3 {
   height: 50px;
   transform: rotate(45deg);
 }
+.home .index .welcome img {
+  width: 100%;
+  height: auto;
+}
 .home .index .all-topics {
-  background-color: #eee;
   color: var(--primary-color);
-  padding: 1rem;
+  padding: 0rem 1rem;
+}
+.home .index .all-topics .header {
+  color: var(--secondary-color);
 }
 .home .index .all-topics .topic {
   text-align: center;

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dev Booster</title>
+    <title>CodePeek</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 
@@ -16,7 +16,7 @@
                 <div class="col-md-4 brand">
                     <a href="/" class="d-flex align-items-center">
                         <img src="{{asset('images/brand.png')}}" class="img-fluid" alt="">
-                        <p class="mb-0">Dev Booster</p>
+                        <p class="mb-0">CodePeeks</p>
                     </a>
                 </div>
                 <div class="col-md-6">

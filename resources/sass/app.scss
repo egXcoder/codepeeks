@@ -2,7 +2,7 @@
 @import "~bootstrap";
 
 .home {
-    background-color: #eee;
+    background-color: #f7f7f7;
     nav {
         background-color: var(--primary-color);
         .brand {
@@ -36,10 +36,18 @@
         }
     }
     .index {
+        .welcome {
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
         .all-topics {
-            background-color: #eee;
             color: var(--primary-color);
-            padding: 1rem;
+            padding: 0rem 1rem;
+            .header {
+                color: var(--secondary-color);
+            }
             .topic {
                 text-align: center;
                 margin-top: 1rem;

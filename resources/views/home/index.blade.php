@@ -2,10 +2,16 @@
 
 @section('main')
 <main class="index">
+    <section class="welcome">
+        <img src="{{asset('images/design.png')}}">
+    </section>
     <section class="all-topics">
         <div class="container">
-            <h1>All Topics</h1>
-            <hr>
+            <div class="d-flex align-items-center justify-content-lg-between">
+                <h1 class="header">Topics</h1>
+                <img src="https://www.kindpng.com/picc/m/618-6185537_peek-a-boo-motherfker-superheroes-peekaboo-clip-art.png" style="width:300px">
+            </div>
+            <hr class="mt-0">
             <div class="row">
                 @foreach($topics as $topic)
                 <div class="col-lg-4 col-md-3 col-sm-6 topic">
