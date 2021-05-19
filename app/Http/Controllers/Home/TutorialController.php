@@ -13,7 +13,7 @@ class TutorialController extends Controller
     public function show(Topic $topic, $tutorialName=null)
     {
         if (!$tutorialName) {
-            $tutorialName = $topic->tutorials->first()->name;
+            $tutorialName = $topic->tutorials->first()->name ?? false;
         }
 
         if ($tutorial = $this->getTutorialFromTopic($topic, $tutorialName)) {
@@ -29,6 +29,10 @@ class TutorialController extends Controller
 
     protected function getTutorialFromTopic(Topic $topic, $tutorialName)
     {
+        if (!$tutorialName) {
+            return false;
+        }
+
         return $topic->tutorials->where('name', $tutorialName)->first();
     }
 

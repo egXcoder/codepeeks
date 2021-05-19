@@ -32,6 +32,15 @@ class HomeTest extends TestCase
     }
 
     /** @test */
+    public function when_user_visit_topic_has_no_tutorials_it_will_give_not_found_response()
+    {
+        $topic = Topic::factory()->create();
+
+        $this->get(route('home.tutorials', $topic->name))
+            ->assertStatus(404);
+    }
+
+    /** @test */
     public function tutorialScreenShowItsNameAndDescription()
     {
         $topic = Topic::factory()->create();
@@ -47,7 +56,7 @@ class HomeTest extends TestCase
     {
         $topic = Topic::factory()->create();
         $tutorial = Tutorial::factory()->create(['topic_id'=>$topic->id]);
-        $this->get(route('home.tutorials',[$topic->name,$tutorial->name]));
-        $this->assertEquals(1,TutorialView::count());
+        $this->get(route('home.tutorials', [$topic->name,$tutorial->name]));
+        $this->assertEquals(1, TutorialView::count());
     }
 }
