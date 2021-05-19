@@ -5,7 +5,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3 tutorial-list-container">
-                <h2 class="header">{{$topic->name}}</h2>
+                <div class="text-center">
+                    <img src="{{asset($topic->image_url)}}" style="height: 60px">
+                    <h2 class="header">{{$topic->name}}</h2>
+                </div>
                 <hr>
                 <div class="tutorial-list">
                     @foreach($topic->tutorials as $single)
@@ -15,7 +18,7 @@
                 </div>
             </div>
             <div class="col-md-9 content">
-               
+
                 <h3 class="header">{{$tutorial->name}}</h3>
                 <hr>
                 <div class="tutorial-html">
