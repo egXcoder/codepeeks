@@ -102,9 +102,9 @@ class TutorialManagementTest extends TestCase
     }
 
     /** @test */
-    public function user_can_update_screen()
+    public function user_can_update_tutorial()
     {
-        $tutorial = Tutorial::factory()->create();
+        $tutorial = Tutorial::factory()->create(['topic_id'=>$this->topic->id]);
 
         $this->put(route('admin.tutorials.update', [$this->topic->id,$tutorial->id]), [
             'name'=>'hello',
@@ -113,5 +113,13 @@ class TutorialManagementTest extends TestCase
 
         $tutorial->refresh();
         $this->assertEquals('hello', $tutorial->name);
+    }
+
+    /** @test */
+    public function user_can_delete_tutorial()
+    {
+        $tutorial = Tutorial::factory()->create(['topic_id'=>$this->topic->id]);
+        $this->delete(route('admin.tutorials.destroy',[$this->topic->id,$tutorial->id]));
+        $this->assertEquals(0, Tutorial::count());
     }
 }

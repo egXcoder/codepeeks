@@ -110,9 +110,10 @@ class TutorialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Topic $topic, Tutorial $tutorial)
     {
-        //
+        $tutorial->delete();
+        return redirect(route('admin.tutorials.index'))->with(['success'=>'Tutorial is deleted successfully']);
     }
 
     public function up(Tutorial $tutorial)

@@ -34,7 +34,7 @@
                 </div>
             </div>
 
-            <div class="col-md-10">
+            <div class="col-md-10 p-4">
                 @yield('main')
             </div>
         </div>

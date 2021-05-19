@@ -30,6 +30,11 @@
                         @csrf
                         <button class="mx-1 btn btn-primary">Down</button>
                     </form>
+                    <form action="{{route('admin.tutorials.destroy',[$topic->id,$tutorial->id])}}" method="Post">
+                        @csrf
+                        @method('delete')
+                        <button class="mx-1 btn btn-danger">Delete</button>
+                    </form>
                 </td>
             </tr>
             @endforeach
