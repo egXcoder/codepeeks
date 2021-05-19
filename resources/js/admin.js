@@ -1,3 +1,3 @@
-import 'bootstrap';
+require('bootstrap');
 window.$ = require('jquery');
 require('summernote');

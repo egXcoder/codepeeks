@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="home">
+    <div class="home" id="app">
         <nav class="navbar">
             <div class="container-fluid">
                 <div class="col-md-4 brand">
@@ -20,7 +20,7 @@
                     </a>
                 </div>
                 <div class="col-md-6">
-                    <input type="search" class="form-control" placeholder="Search...">
+                    <global-search></global-search>
                 </div>
             </div>
         </nav>
@@ -38,6 +38,7 @@
             </div>
         </footer>
     </div>
+    <script src="{{asset('js/home.js')}}"></script>
 </body>
 
 </html>
