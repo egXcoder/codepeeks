@@ -11,14 +11,14 @@
 
 <body>
     <div class="admin">
-        <div class="d-flex">
+        <div class="row no-gutters">
             <div class="col-md-2">
                 <div class="commands-container">
                     <div class="d-flex align-items-center p-2">
                         <img src="{{asset('images/brand.png')}}" style="height: 50px;text-align:center;">
                         <p class="mb-0 text-white">Administration</p>
                     </div>
-                    <hr style="color: white">
+                    <hr style="border-top-color: white">
                     <div class="commands">
                         <a class="action @if(Route::currentRouteName() == 'admin.index') active @endif"
                             href="{{route('admin.index')}}"><i class="fas fa-home"></i>
@@ -34,7 +34,7 @@
                 </div>
             </div>
 
-            <div class="col-md-10 p-4">
+            <div class="col-md-10">
                 @yield('main')
             </div>
         </div>

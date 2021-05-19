@@ -1,2 +1,3 @@
-window.ClassicEditor = require('@ckeditor/ckeditor5-build-classic');
+import 'bootstrap';
 window.$ = require('jquery');
+require('summernote');
