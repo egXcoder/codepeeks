@@ -4,13 +4,13 @@
 .home {
     background-color: #f7f7f7;
     nav {
-        background-color: var(--primary-color);
+        background-color: #fefefe;
         .brand {
             a {
                 text-decoration: none;
-                color: white;
+                color: var(--primary-color);
+                font-weight: bold;
                 img {
-                    transform: rotate(45deg);
                     height: 60px;
                 }
             }
@@ -31,7 +31,6 @@
             }
             img {
                 height: 50px;
-                transform: rotate(45deg);
             }
         }
     }
@@ -77,10 +76,12 @@
 
     .tutorial-screen {
         .tutorial-list-container {
-            background-color: #eee;
+            background-color: #fefefe;
             padding: 1rem;
             color: var(--primary-color);
-
+            .header {
+                text-transform: uppercase;
+            }
             .tutorial-list {
                 display: flex;
                 flex-flow: column;

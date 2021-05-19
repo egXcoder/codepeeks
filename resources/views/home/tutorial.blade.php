@@ -1,4 +1,4 @@
-@extends('home.layouts.app')
+@extends('layouts.home')
 
 @section('main')
 <main class="tutorial-screen">

@@ -16,7 +16,7 @@
                 <div class="col-md-4 brand">
                     <a href="/" class="d-flex align-items-center">
                         <img src="{{asset('images/brand.png')}}" class="img-fluid" alt="">
-                        <p class="mb-0">CodePeeks</p>
+                        <p class="mb-0">Code Peeks</p>
                     </a>
                 </div>
                 <div class="col-md-6">
@@ -26,12 +26,11 @@
         </nav>
 
         @yield('main')
-        
+
         <footer>
             <div class="copyrights">
-                <div class="container-fluid">
+                <div class="container">
                     <div class="d-flex align-items-center">
-                        <img src="{{asset('images/brand.png')}}" class="img-fluid" alt="">
                         <p>&copy;Copyrights 2021, Developed By <a href="https://github.com/egXcoder">AI</a>
                         </p>
                     </div>

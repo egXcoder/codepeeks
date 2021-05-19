@@ -1,4 +1,4 @@
-@extends('home.layouts.app')
+@extends('layouts.home')
 
 @section('main')
 <main class="index">
@@ -9,7 +9,7 @@
         <div class="container">
             <div class="d-flex align-items-center justify-content-lg-between">
                 <h1 class="header">Topics</h1>
-                <img src="https://www.kindpng.com/picc/m/618-6185537_peek-a-boo-motherfker-superheroes-peekaboo-clip-art.png" style="width:300px">
+                <img src="{{asset('images/peek.jpg')}}" style="width:300px">
             </div>
             <hr class="mt-0">
             <div class="row">

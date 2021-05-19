@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('layouts.admin')
 
 @section('main')
 <form action="{{route('admin.tutorials.update',[$topic->id,$tutorial->id])}}" method="POST">
