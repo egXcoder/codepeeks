@@ -30,4 +30,12 @@
 
     <button class="btn btn-primary">Submit</button>
 </form>
+<script>
+    // Alternative to load event
+    document.onreadystatechange = function () {
+        if (document.readyState === 'complete') {
+            $('textarea').summernote();
+        }
+    }
+</script>
 @endsection
