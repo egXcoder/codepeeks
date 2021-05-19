@@ -113,7 +113,8 @@ class TutorialController extends Controller
     public function destroy(Topic $topic, Tutorial $tutorial)
     {
         $tutorial->delete();
-        return redirect(route('admin.tutorials.index'))->with(['success'=>'Tutorial is deleted successfully']);
+        return redirect(route('admin.tutorials.index',[$topic->id]))
+            ->with(['success'=>'Tutorial is deleted successfully']);
     }
 
     public function up(Tutorial $tutorial)
