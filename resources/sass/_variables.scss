@@ -1,5 +1,9 @@
+//override bootstrap
+$primary: #19253c;
+
 :root {
-    --primary-color: #19253c;
-    --secondary-color:#E94F37;
-    --third-color:#F7D87C;
+    --primary-color: #{$primary};
+    --secondary-color: #e94f37;
+    --third-color: #f7d87c;
+    --nav-color: #fefefe;
 }

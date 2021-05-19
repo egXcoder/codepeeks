@@ -4,7 +4,7 @@
 .home {
     background-color: #f7f7f7;
     nav {
-        background-color: #fefefe;
+        background-color: var(--nav-color);
         .brand {
             a {
                 text-decoration: none;
@@ -76,7 +76,7 @@
 
     .tutorial-screen {
         .tutorial-list-container {
-            background-color: #fefefe;
+            background-color: var(--nav-color);
             padding: 1rem;
             color: var(--primary-color);
             .header {

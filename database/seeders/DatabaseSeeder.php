@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         ]);
         $this->call(TopicSeeder::class);
         $this->call(TutorialSeeder::class);
+        $this->call(TutorialViewSeeder::class);
     }
 }
