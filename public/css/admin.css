@@ -16929,6 +16929,12 @@ readers do not read off random characters that represent icons */
   font-size: 13px;
 }
 
+.admin .header {
+  text-decoration: none !important;
+}
+.admin .header img {
+  transform: rotate(45deg);
+}
 .admin .commands-container {
   background-color: var(--primary-color);
   height: 100vh;

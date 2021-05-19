@@ -20,7 +20,7 @@
             @foreach($topics as $topic)
             <tr>
                 <td>{{$topic->id}}</td>
-                <td><img src="{{asset($topic->image_url)}}" style="height: 40px"></td>
+                <td><img src="{{asset($topic->image_url)}}" style="height: 60px"></td>
                 <td>{{$topic->name}}</td>
                 <td>{{$topic->description}}</td>
                 <td class="d-flex">

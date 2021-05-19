@@ -10008,15 +10008,21 @@ h3 {
   }
 }
 .home nav {
-  background-color: var(--third-color);
+  background-color: var(--primary-color);
 }
-.home nav img {
-  height: 50px;
+.home nav .brand a {
+  text-decoration: none;
+  color: white;
+}
+.home nav .brand a img {
+  transform: rotate(45deg);
+  height: 60px;
 }
 .home footer .copyrights {
-  background-color: var(--third-color);
-  color: var(--primary-color);
-  padding: 4px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 1rem;
+  margin-top: 5px;
 }
 .home footer .copyrights a {
   color: white;
@@ -10026,23 +10032,29 @@ h3 {
   margin-bottom: 0px;
 }
 .home footer .copyrights img {
-  height: 40px;
+  height: 50px;
+  transform: rotate(45deg);
 }
 .home .index .all-topics {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: #eee;
+  color: var(--primary-color);
   padding: 1rem;
 }
 .home .index .all-topics .topic {
   text-align: center;
   margin-top: 1rem;
   margin-bottom: 1rem;
-}
-.home .index .all-topics .topic h3 {
-  text-transform: capitalize;
+  padding: 1rem;
 }
 .home .index .all-topics .topic img {
   height: 70px;
+  min-height: 70px;
+}
+.home .index .all-topics .topic .content {
+  min-height: 120px;
+}
+.home .index .all-topics .topic .content h3 {
+  text-transform: capitalize;
 }
 .home .index .all-topics .topic .btn {
   background: var(--secondary-color);
@@ -10053,14 +10065,13 @@ h3 {
   box-shadow: none;
 }
 .home .tutorial-screen .tutorial-list-container {
-  background-color: var(--primary-color);
+  background-color: #eee;
   padding: 1rem;
-  color: white;
+  color: var(--primary-color);
 }
 .home .tutorial-screen .tutorial-list-container .tutorial-list {
   display: flex;
   flex-flow: column;
-  color: white;
   height: 80vh;
   overflow: auto;
 }
@@ -10069,8 +10080,10 @@ h3 {
   color: inherit;
   text-transform: capitalize;
   padding: 0.5rem;
+  transition: all 0.25s;
 }
 .home .tutorial-screen .tutorial-list-container .tutorial-list a:hover {
+  color: white;
   background-color: var(--secondary-color);
 }
 .home .tutorial-screen .tutorial-list-container .tutorial-list a.active {

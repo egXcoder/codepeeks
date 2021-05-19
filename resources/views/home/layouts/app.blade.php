@@ -13,9 +13,10 @@
     <div class="home">
         <nav class="navbar">
             <div class="container-fluid">
-                <div class="col-md-4">
-                    <a href="/">
+                <div class="col-md-4 brand">
+                    <a href="/" class="d-flex align-items-center">
                         <img src="{{asset('images/brand.png')}}" class="img-fluid" alt="">
+                        <p class="mb-0">Dev Booster</p>
                     </a>
                 </div>
                 <div class="col-md-6">
@@ -28,7 +29,7 @@
         
         <footer>
             <div class="copyrights">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="d-flex align-items-center">
                         <img src="{{asset('images/brand.png')}}" class="img-fluid" alt="">
                         <p>&copy;Copyrights 2021, Developed By <a href="https://github.com/egXcoder">AI</a>

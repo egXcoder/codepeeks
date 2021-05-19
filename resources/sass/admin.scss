@@ -4,6 +4,12 @@
 @import "summernote/src/styles/summernote-bs4";
 
 .admin {
+    .header{
+        text-decoration: none !important;
+        img{
+            transform: rotate(45deg);
+        }
+    }
     .commands-container {
         background-color: var(--primary-color);
         height: 100vh;

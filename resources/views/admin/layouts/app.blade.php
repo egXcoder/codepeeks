@@ -14,10 +14,10 @@
         <div class="row no-gutters">
             <div class="col-md-2">
                 <div class="commands-container">
-                    <div class="d-flex align-items-center p-2">
+                    <a class="d-flex align-items-center p-2 header" href="{{route('admin.index')}}">
                         <img src="{{asset('images/brand.png')}}" style="height: 50px;text-align:center;">
-                        <p class="mb-0 text-white">Administration</p>
-                    </div>
+                        <p class="mb-0 text-white text-decoration-none">Administration</p>
+                    </a>
                     <hr style="border-top-color: white">
                     <div class="commands">
                         <a class="action @if(Route::currentRouteName() == 'admin.index') active @endif"

@@ -8,10 +8,12 @@
             <hr>
             <div class="row">
                 @foreach($topics as $topic)
-                <div class="col-lg-3 col-md-4 col-sm-6 topic">
+                <div class="col-lg-4 col-md-3 col-sm-6 topic">
                     <img src="/{{$topic->image_url}}" class="img-fluid">
-                    <h3>{{$topic->name}}</h3>
-                    <p>{{$topic->description}}</p>
+                    <div class="content">
+                        <h3>{{$topic->name}}</h3>
+                        <p>{{$topic->description}}</p>
+                    </div>
                     <a class="btn btn-primary px-3" href="{{route('home.tutorials',$topic->name)}}">Learn
                         {{$topic->name}}</a>
                 </div>
