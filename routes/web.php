@@ -45,4 +45,5 @@ Route::prefix('admin')->group(function () {
 
 
 Route::get('/', HomeController::class);
-Route::get('/{topic:name}/{tutorialName?}', [HomeTutorialController::class,'show'])->name('home.tutorials');
+Route::get('/{topic:name}', [HomeTutorialController::class,'showDefaultTutorial'])->name('home.tutorials.default');
+Route::get('/{topic:name}/{tutorialName}', [HomeTutorialController::class,'showSpecificTutorial'])->name('home.tutorials.specific');

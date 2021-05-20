@@ -4,35 +4,32 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use App\Models\Topic;
+use App\Models\Tutorial;
 use App\Models\TutorialView;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class TutorialController extends Controller
 {
-    public function show(Topic $topic, $tutorialName=null)
+    public function showDefaultTutorial(Topic $topic)
     {
-        if (!$tutorialName) {
-            $tutorialName = $topic->tutorials->first()->name ?? false;
-        }
-
-        if ($tutorial = $this->getTutorialFromTopic($topic, $tutorialName)) {
-            $this->recordView($tutorial);
-            return view('home.tutorial', [
-                'topic'=>$topic,
-                'tutorial'=>$tutorial
-            ]);
-        }
-        
-        abort(404, 'Not Found');
+        $tutorial = $topic->tutorials->first() ?? new Tutorial(['id'=>0]);
+        return view('home.tutorial', [
+            'topic'=>$topic,
+            'tutorial'=>$tutorial
+        ]);
+    }
+    public function showSpecificTutorial(Topic $topic, Tutorial $tutorial)
+    {
+        $this->recordView($tutorial);
+        return view('home.tutorial', [
+            'topic'=>$topic,
+            'tutorial'=>$tutorial
+        ]);
     }
 
     protected function getTutorialFromTopic(Topic $topic, $tutorialName)
     {
-        if (!$tutorialName) {
-            return false;
-        }
-
         return $topic->tutorials->where('name', $tutorialName)->first();
     }
 

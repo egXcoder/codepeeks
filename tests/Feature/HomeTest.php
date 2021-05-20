@@ -26,18 +26,18 @@ class HomeTest extends TestCase
         $tutorial_1 = Tutorial::factory()->create(['topic_id'=>$topic->id]);
         $tutorial_2 = Tutorial::factory()->create(['topic_id'=>$topic->id]);
 
-        $this->get(route('home.tutorials', $topic->name))
+        $this->get(route('home.tutorials.default', $topic->name))
             ->assertSee($tutorial_1->name)
             ->assertSee($tutorial_2->name);
     }
 
     /** @test */
-    public function when_user_visit_topic_has_no_tutorials_it_will_give_not_found_response()
+    public function when_user_visit_topic_has_no_tutorials_it_will_give_him_will_be_added_soon()
     {
         $topic = Topic::factory()->create();
 
-        $this->get(route('home.tutorials', $topic->name))
-            ->assertStatus(404);
+        $this->get(route('home.tutorials.default', $topic->name))
+            ->assertSee('will be added soon');
     }
 
     /** @test */
@@ -46,7 +46,7 @@ class HomeTest extends TestCase
         $topic = Topic::factory()->create();
         $tutorial_1 = Tutorial::factory()->create(['topic_id'=>$topic->id]);
 
-        $this->get(route('home.tutorials', [$topic->name,$tutorial_1->name]))
+        $this->get(route('home.tutorials.specific', [$topic->name,$tutorial_1->name]))
             ->assertSee($tutorial_1->name)
             ->assertSee($tutorial_1->description);
     }
@@ -56,7 +56,7 @@ class HomeTest extends TestCase
     {
         $topic = Topic::factory()->create();
         $tutorial = Tutorial::factory()->create(['topic_id'=>$topic->id]);
-        $this->get(route('home.tutorials', [$topic->name,$tutorial->name]));
+        $this->get(route('home.tutorials.specific', [$topic->name,$tutorial->name]));
         $this->assertEquals(1, TutorialView::count());
     }
 }

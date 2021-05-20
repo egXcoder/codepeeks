@@ -20,7 +20,7 @@
                         <h3>{{$topic->name}}</h3>
                         <p>{{$topic->description}}</p>
                     </div>
-                    <a class="btn btn-primary px-3" href="{{route('home.tutorials',$topic->name)}}">Learn
+                    <a class="btn btn-primary px-3" href="{{route('home.tutorials.default',$topic->name)}}">Learn
                         {{$topic->name}}</a>
                 </div>
                 @endforeach
