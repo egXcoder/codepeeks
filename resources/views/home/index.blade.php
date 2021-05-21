@@ -1,5 +1,14 @@
 @extends('layouts.home')
 
+@section('head')
+<meta property="og:image" itemprop="image" content="{{asset('images/brand.png')}}" />
+<meta property="twitter:image" content="{{asset('images/brand.png')}}">
+<meta property="og:description"
+    content="CodePeeks is a web application where you can reach peeks on various topics of software development" />
+<meta property="twitter:description"
+    content="CodePeeks is a web application where you can reach peeks on various topics of software development" />
+@endsection
+
 @section('main')
 <main class="index">
     <section class="welcome">

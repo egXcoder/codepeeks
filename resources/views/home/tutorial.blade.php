@@ -1,5 +1,10 @@
 @extends('layouts.home')
 
+@section('head')
+<meta property="og:image" itemprop="image" content="{{asset($topic->image_url)}}" />
+<meta property="twitter:image" itemprop="image" content="{{asset($topic->image_url)}}" />
+@endsection
+
 @section('main')
 <main class="tutorial-screen">
     <div class="container-fluid">
