@@ -31,8 +31,7 @@
 
     <div class="form-group my-2">
         <label for="image">Image</label>
-        <input name="image" type="file" class="form-control-file @error('image') is-invalid @enderror" id="image"
-            required>
+        <input name="image" type="file" class="form-control-file @error('image') is-invalid @enderror" id="image">
         @error('image')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message}}</strong>
