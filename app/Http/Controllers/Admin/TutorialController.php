@@ -113,7 +113,7 @@ class TutorialController extends Controller
     public function destroy(Topic $topic, Tutorial $tutorial)
     {
         $tutorial->delete();
-        return redirect(route('admin.tutorials.index',[$topic->id]))
+        return redirect(route('admin.tutorials.index', [$topic->id]))
             ->with(['success'=>'Tutorial is deleted successfully']);
     }
 
@@ -150,6 +150,28 @@ class TutorialController extends Controller
         });
 
         return back()->with('success', 'Topic is ordered up successfully');
+    }
+
+    public function trashedIndex()
+    {
+        return view('admin.tutorials.trashed.index', [
+            'tutorials'=> Tutorial::onlyTrashed()->get()
+        ]);
+    }
+
+    public function trashedRestore($tutorial_id)
+    {
+        $tutorial = Tutorial::withTrashed()->findOrFail($tutorial_id);
+        
+        if (!$tutorial->trashed()) {
+            abort(422, 'Tutorial is not trashed to be restored');
+        }
+
+        $tutorial->restore();
+
+        return redirect(route('admin.tutorials.trashed.index'))->with([
+            'success'=> "Tutorial $tutorial->name is restored successfully"
+        ]);
     }
 
     protected function exchangeOrder($tutorial, $anotherTutorial)

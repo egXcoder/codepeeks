@@ -39,6 +39,9 @@ Route::prefix('admin')->group(function () {
         Route::resource('topics/{topic}/tutorials', TutorialController::class);
         Route::post('tutorials/{tutorial}/up', [TutorialController::class,'up'])->name('tutorials.up');
         Route::post('tutorials/{tutorial}/down', [TutorialController::class,'down'])->name('tutorials.down');
+        
+        Route::get('tutorials/trashed', [TutorialController::class,'trashedIndex'])->name('tutorials.trashed.index');
+        Route::put('tutorials/{tutorial}/restore', [TutorialController::class,'trashedRestore'])->name('tutorials.trashed.restore');
     });
 });
 

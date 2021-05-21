@@ -25,6 +25,8 @@
                         <a class="action @if(Route::currentRouteName() == 'admin.topics.index') active @endif"
                             href="{{route('admin.topics.index')}}"><i class="fas fa-border-all"></i> All
                             Topics</a>
+                        <a class="action @if(Route::currentRouteName() == 'admin.tutorials.trashed.index') active @endif"
+                            href="{{route('admin.tutorials.trashed.index')}}"><i class="fas fa-trash-alt"></i> Trashed Tutorials</a>
                         <form action="{{route('logout')}}" method="POST">
                             @csrf
                             <button class="btn btn-link action"><i class="fas fa-sign-out-alt"></i> Logout</button>

@@ -34,7 +34,7 @@
                         @csrf
                         @method('delete')
                         <button class="mx-1 btn btn-danger"
-                            onclick="if(!confirm('Are you sure to delete tutorial')) event.preventDefault()">Delete</button>
+                            onclick="if(!confirm('Are you sure to delete tutorial')) event.preventDefault()">Trash</button>
                     </form>
                 </td>
             </tr>

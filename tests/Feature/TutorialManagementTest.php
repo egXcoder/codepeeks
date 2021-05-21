@@ -116,10 +116,21 @@ class TutorialManagementTest extends TestCase
     }
 
     /** @test */
-    public function user_can_delete_tutorial()
+    public function user_can_soft_delete_tutorial()
     {
         $tutorial = Tutorial::factory()->create(['topic_id'=>$this->topic->id]);
         $this->delete(route('admin.tutorials.destroy',[$this->topic->id,$tutorial->id]));
-        $this->assertEquals(0, Tutorial::count());
+        $tutorial->refresh();
+        $this->assertTrue($tutorial->trashed());
+    }
+
+    /** @test */
+    public function deleted_tutorials_can_be_restored()
+    {
+        $tutorial = Tutorial::factory()->create(['topic_id'=>$this->topic->id]);
+        $tutorial->delete();
+        $this->put(route('admin.tutorials.trashed.restore',$tutorial->id));
+        $tutorial->refresh();
+        $this->assertFalse($tutorial->trashed());
     }
 }
