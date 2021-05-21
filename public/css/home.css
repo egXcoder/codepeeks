@@ -10046,14 +10046,47 @@ h3 {
   color: var(--primary-color);
   padding: 0rem 1rem 2rem 1rem;
 }
-.home .index .all-topics .header {
+.home .index .all-topics .header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.home .index .all-topics .header-container .header {
   color: var(--secondary-color);
+}
+.home .index .all-topics .header-container img {
+  width: 300px;
+}
+@media screen and (max-width: 576px) {
+  .home .index .all-topics .header-container img {
+    width: 150px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .home .index .all-topics .header-container img {
+    width: 250px;
+  }
 }
 .home .index .all-topics .topic {
   text-align: center;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  padding: 1rem;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.08) !important;
+  border-radius: 5px;
+}
+.home .index .all-topics .topic .count {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondary-color);
+  color: White;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 .home .index .all-topics .topic img {
   height: 70px;
