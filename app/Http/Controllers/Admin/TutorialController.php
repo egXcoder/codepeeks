@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\TutorialHtmlFixer;
 use App\Http\Controllers\Controller;
 use App\Models\Topic;
 use App\Models\Tutorial;
@@ -50,7 +51,7 @@ class TutorialController extends Controller
 
         Tutorial::create([
             'name'=>request('name'),
-            'description'=>request('description'),
+            'description'=>(new TutorialHtmlFixer(request('description')))->fix(),
             'topic_id'=>$topic->id,
             'order'=>($tutorial->order??0) +1
         ]);
@@ -97,7 +98,7 @@ class TutorialController extends Controller
 
         $tutorial->update([
             'name'=>request('name'),
-            'description'=>request('description'),
+            'description'=> (new TutorialHtmlFixer(request('description')))->fix(),
         ]);
 
         return redirect(route('admin.tutorials.index', $topic->id))
