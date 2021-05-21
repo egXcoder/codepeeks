@@ -33,7 +33,21 @@
     // Alternative to load event
     document.onreadystatechange = function () {
         if (document.readyState === 'complete') {
-            $('textarea').summernote();
+            $('textarea').summernote({
+                toolbar:[
+                    ['pagebreak',['pagebreak']], // The Button
+                    ['style',['style']],
+                    ['font',['bold','italic','underline','clear']],
+                    ['fontname',['fontname']],
+                    ['color',['color']],
+                    ['para',['ul','ol','paragraph']],
+                    ['height',['height']],
+                    ['table',['table']],
+                    ['insert',['media','link','hr']],
+                    ['view',['fullscreen','codeview']],
+                    ['help',['help']]
+                ],
+            });
         }
     }
 </script>
