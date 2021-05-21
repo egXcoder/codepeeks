@@ -15,4 +15,5 @@ mix.vue()
     .js('resources/js/home.js', 'public/js')
     .js('resources/js/admin.js','public/js')
     .sass('resources/sass/home.scss', 'public/css')
-    .sass('resources/sass/admin.scss', 'public/css');
+    .sass('resources/sass/admin.scss', 'public/css')
+    .version();
