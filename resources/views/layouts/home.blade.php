@@ -8,6 +8,8 @@
     <title>CodePeeks</title>
     <link rel="stylesheet" href="{{mix('css/home.css')}}">
     <meta name="theme-color" content="#62abe4">
+    <meta property="og:image" itemprop="image" content="{{asset('images/brand.png')}}" />
+    <meta property="twitter:image" content="{{asset('images/brand.png')}}">
 </head>
 
 <body>
