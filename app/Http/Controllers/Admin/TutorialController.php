@@ -101,8 +101,7 @@ class TutorialController extends Controller
             'description'=> (new TutorialHtmlFixer(request('description')))->fix(),
         ]);
 
-        return redirect(route('admin.tutorials.index', $topic->id))
-            ->with(['success'=>'Tutorial is updated successfully']);
+        return back()->with(['success'=>'Tutorial is updated successfully']);
     }
 
     /**

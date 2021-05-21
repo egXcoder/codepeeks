@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('main')
+<x-alert-messages />
 <form action="{{route('admin.tutorials.update',[$topic->id,$tutorial->id])}}" method="POST">
     @csrf
     @method('put')
