@@ -1,8 +1,10 @@
 @import "variables";
 @import "~bootstrap";
+@import "mixins";
 
 .home {
     background-color: #f7f7f7;
+    @include blockquote;
     nav {
         background-color: var(--nav-color);
         .brand {
