@@ -17,14 +17,13 @@
 
     <div class="form-group my-2">
         <label for="">Description</label>
-        <textarea name="description" rows="20"
-         class="form-control @error('description') is-invalid @enderror">
-         {{old('description')}}
+        <textarea name="description" rows="20" class="form-control @error('description') is-invalid @enderror">
+         {!!old('description')!!}
         </textarea>
         @error('description')
-            <span class="invalid-feedback" role="alert">
+        <span class="invalid-feedback" role="alert">
             <strong>{{ $message}}</strong>
-            </span>
+        </span>
         @enderror
     </div>
 
