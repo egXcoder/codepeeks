@@ -17,7 +17,7 @@ class TopicController extends Controller
     public function index()
     {
         return view('admin.topics.index', [
-            'topics'=>Topic::orderBy('order')->get()
+            'topics'=>Topic::withCount(['tutorials'])->orderBy('order')->get()
         ]);
     }
 

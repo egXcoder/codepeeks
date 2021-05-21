@@ -14,6 +14,7 @@
             <th>Image</th>
             <th>Name</th>
             <th>Description</th>
+            <th>Tutorials Count</th>
             <th style="min-width:350px">Actions</th>
         </thead>
         <tbody>
@@ -23,6 +24,7 @@
                 <td><img src="{{asset($topic->image_url)}}" style="height: 60px"></td>
                 <td>{{$topic->name}}</td>
                 <td>{{$topic->description}}</td>
+                <td>{{$topic->tutorials_count}}</td>
                 <td class="d-flex">
                     <a class="mx-1 btn btn-success" href="{{route('admin.tutorials.index',$topic->id)}}">View
                         Tutorials</a>
