@@ -12,15 +12,15 @@
 
 <body>
     <div class="home" id="app">
-        <nav class="navbar">
-            <div class="container-fluid">
-                <div class="col-md-4 brand">
-                    <a href="/" class="d-flex align-items-center">
+        <nav class="p-2">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-sm-3 col-md-4 brand">
+                    <a href="/" class="d-inline-flex align-items-center">
                         <img src="{{asset('images/brand.png')}}" class="img-fluid" alt="">
                         <p class="mb-0">Code Peeks</p>
                     </a>
                 </div>
-                <div class="col-md-6">
+                <div class="col-sm-8 col-md-6">
                     <global-search></global-search>
                 </div>
             </div>
