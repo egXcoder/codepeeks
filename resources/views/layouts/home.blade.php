@@ -13,7 +13,7 @@
 <body>
     <div class="home" id="app">
         <nav class="p-2">
-            <div class="row justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
                 <div class="col-sm-3 col-md-4 brand">
                     <a href="/" class="d-inline-flex align-items-center">
                         <img src="{{asset('images/brand.png')}}" class="img-fluid" alt="">
