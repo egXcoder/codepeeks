@@ -13,10 +13,13 @@ class TutorialController extends Controller
 {
     public function showDefaultTutorial(Topic $topic)
     {
-        $tutorial = $topic->tutorials->first() ?? new Tutorial(['id'=>0]);
+        if($tutorial = $topic->tutorials->first()){
+            return $this->showSpecificTutorial($topic,$tutorial);
+        }
+
         return view('home.tutorial', [
             'topic'=>$topic,
-            'tutorial'=>$tutorial
+            'tutorial'=>new Tutorial(['id'=>0])
         ]);
     }
     public function showSpecificTutorial(Topic $topic, Tutorial $tutorial)
