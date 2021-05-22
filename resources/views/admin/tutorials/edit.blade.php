@@ -40,6 +40,7 @@
     document.onreadystatechange = function () {
         if (document.readyState === 'complete') {
             $('textarea').summernote({
+                fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '24'],
                 toolbar:[
                     ['pagebreak',['pagebreak']], // The Button
                     ['style',['style']],

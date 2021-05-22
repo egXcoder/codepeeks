@@ -34,19 +34,20 @@
     document.onreadystatechange = function () {
         if (document.readyState === 'complete') {
             $('textarea').summernote({
+                fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '24'],
                 toolbar:[
-                    ['pagebreak',['pagebreak']], // The Button
-                    ['style',['style']],
-                    ['font',['bold','italic','underline','clear']],
-                    ['fontsize', ['fontsize']],
-                    ['fontname',['fontname']],
-                    ['color',['color']],
-                    ['para',['ul','ol','paragraph']],
-                    ['height',['height']],
-                    ['table',['table']],
-                    ['insert',['media','link','hr']],
-                    ['view',['fullscreen','codeview']],
-                    ['help',['help']]
+                ['pagebreak',['pagebreak']], // The Button
+                ['style',['style']],
+                ['font',['bold','italic','underline','clear']],
+                ['fontsize', ['fontsize']],
+                ['fontname',['fontname']],
+                ['color',['color']],
+                ['para',['ul','ol','paragraph']],
+                ['height',['height']],
+                ['table',['table']],
+                ['insert',['media','link','hr']],
+                ['view',['fullscreen','codeview']],
+                ['help',['help']]
                 ],
             });
         }
