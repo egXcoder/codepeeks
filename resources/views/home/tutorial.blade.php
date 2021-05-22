@@ -25,8 +25,8 @@
                         <span></span>
                     </a>
                     <a href="/"><i class="fas fa-home"></i></a>
-                    @foreach($nav_topics as $topic)
-                    <a href="{{route('home.tutorials.default',$topic->name)}}">{{$topic->name}}</a>
+                    @foreach($nav_topics as $nav_topic)
+                    <a href="{{route('home.tutorials.default',$nav_topic->name)}}">{{$nav_topic->name}}</a>
                     @endforeach
                 </div>
             </nav>
