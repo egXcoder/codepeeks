@@ -31,11 +31,6 @@ class TutorialController extends Controller
         ]);
     }
 
-    protected function getTutorialFromTopic(Topic $topic, $tutorialName)
-    {
-        return $topic->tutorials->where('name', $tutorialName)->first();
-    }
-
     protected function recordView($tutorial)
     {
         TutorialView::create([
