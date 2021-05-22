@@ -18,7 +18,7 @@
             <x-top-nav></x-top-nav>
 
             <nav class="bottom-nav">
-                <div class="px-4 py-2 d-flex">
+                <div class="py-2 d-flex">
                     <a onclick="$('.tutorial-list-container').toggleClass('show')" class="sidebar-toggle-button">
                         <span></span>
                         <span></span>

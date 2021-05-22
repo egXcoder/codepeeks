@@ -18,7 +18,7 @@
 
 <body>
     <div class="home" id="app">
-        <div class="navs">
+        <div class="navs position-static">
             <x-top-nav></x-top-nav>
         </div>
 
