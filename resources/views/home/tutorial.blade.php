@@ -16,7 +16,7 @@
                 </div>
                 <hr>
                 <div class="tutorial-list">
-                    @forelse($topic->tutorials as $single)
+                    @forelse($topic->tutorials->sortBy('order') as $single)
                     <a class="@if(url()->current() == route('home.tutorials.specific',[$topic->name,$single->name])) active @endif"
                         href="{{route('home.tutorials.specific',[$topic->name,$single->name])}}">{{$single->name}}</a>
                     @empty
