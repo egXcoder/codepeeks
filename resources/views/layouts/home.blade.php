@@ -41,6 +41,7 @@
         </footer>
     </div>
     <script src="{{mix('js/home.js')}}"></script>
+    @if(App::environment('production'))
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1VE98Y6RMF"></script>
     <script>
@@ -50,6 +51,7 @@
     
       gtag('config', 'G-1VE98Y6RMF');
     </script>
+    @endif
 </body>
 
 </html>
