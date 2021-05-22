@@ -40,7 +40,6 @@
                             <div class="header-container">
                                 <img src="{{asset($topic->image_url)}}">
                                 <h2 class="header">{{$topic->name}}</h2>
-                                <hr>
                             </div>
                             <div class="tutorial-list">
                                 @forelse($topic->tutorials->sortBy('order') as $single)
