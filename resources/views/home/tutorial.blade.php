@@ -44,7 +44,7 @@
                             </div>
                             <div class="tutorial-list">
                                 @forelse($topic->tutorials->sortBy('order') as $single)
-                                <a class="@if(url()->current() == route('home.tutorials.specific',[$topic->name,$single->name])) active @endif"
+                                <a class="@if($single->id == $tutorial->id) active @endif"
                                     href="{{route('home.tutorials.specific',[$topic->name,$single->name])}}">{{$single->name}}</a>
                                 @empty
                                 <p class="text-center">No Tutorials Yet</p>
