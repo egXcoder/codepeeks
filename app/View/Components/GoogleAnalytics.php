@@ -23,6 +23,6 @@ class GoogleAnalytics extends Component
      */
     public function render()
     {
-        return view('components.google-anayltics');
+        return view('components.google-analytics');
     }
 }

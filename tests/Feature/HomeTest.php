@@ -16,7 +16,7 @@ class HomeTest extends TestCase
     public function homeScreenHasTopicNames()
     {
         $topic = Topic::factory()->create();
-        $response = $this->get('/')->assertSee($topic->name);
+        $response = $this->get('/')->assertStatus(200)->assertSee($topic->name);
     }
 
     /** @test */
@@ -27,6 +27,7 @@ class HomeTest extends TestCase
         $tutorial_2 = Tutorial::factory()->create(['topic_id'=>$topic->id]);
 
         $this->get(route('home.tutorials.default', $topic->name))
+            ->assertStatus(200)
             ->assertSee($tutorial_1->name)
             ->assertSee($tutorial_2->name);
     }
@@ -37,6 +38,7 @@ class HomeTest extends TestCase
         $topic = Topic::factory()->create();
 
         $this->get(route('home.tutorials.default', $topic->name))
+            ->assertStatus(200)
             ->assertSee('will be added soon');
     }
 
@@ -47,6 +49,7 @@ class HomeTest extends TestCase
         $tutorial_1 = Tutorial::factory()->create(['topic_id'=>$topic->id]);
 
         $this->get(route('home.tutorials.specific', [$topic->name,$tutorial_1->name]))
+            ->assertStatus(200)
             ->assertSee($tutorial_1->name)
             ->assertSee($tutorial_1->description);
     }
