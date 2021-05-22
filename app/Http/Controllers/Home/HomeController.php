@@ -9,10 +9,13 @@ class HomeController extends Controller
 {
     public function __invoke()
     {
-        return view('home.index', ['topics'=>$this->getTopics()]);
+        return view('home.index', [
+            'topics'=>$this->getTopics(),
+        ]);
     }
 
-    protected function getTopics(){
+    protected function getTopics()
+    {
         return Topic::withCount(['tutorials'])->orderBy('order')->get();
     }
 }

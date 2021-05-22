@@ -1,41 +1,75 @@
-@extends('layouts.home')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('head')
-<meta property="og:image" itemprop="image" content="{{asset($topic->image_url)}}" />
-<meta property="twitter:image" itemprop="image" content="{{asset($topic->image_url)}}" />
-@endsection
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CodePeeks</title>
+    <link rel="stylesheet" href="{{mix('css/home.css')}}">
+    <meta name="theme-color" content="#62abe4">
+    <meta property="og:image" itemprop="image" content="{{asset($topic->image_url)}}" />
+    <meta property="twitter:image" itemprop="image" content="{{asset($topic->image_url)}}" />
+</head>
 
-@section('main')
-<main class="tutorial-screen">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3 tutorial-list-container">
-                <div class="text-center">
-                    <img src="{{asset($topic->image_url)}}" style="height: 60px">
-                    <h2 class="header">{{$topic->name}}</h2>
+<body>
+    <div class="home" id="app">
+        <div class="navs">
+            <x-top-nav></x-top-nav>
+
+            <nav class="bottom-nav">
+                <div class="px-4 py-2 d-flex">
+                    <a onclick="$('.tutorial-list-container').toggleClass('show')" class="sidebar-toggle-button">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                    <a href="/"><i class="fas fa-home"></i></a>
+                    @foreach($nav_topics as $topic)
+                    <a href="{{route('home.tutorials.default',$topic->name)}}">{{$topic->name}}</a>
+                    @endforeach
                 </div>
-                <hr>
-                <div class="tutorial-list">
-                    @forelse($topic->tutorials->sortBy('order') as $single)
-                    <a class="@if(url()->current() == route('home.tutorials.specific',[$topic->name,$single->name])) active @endif"
-                        href="{{route('home.tutorials.specific',[$topic->name,$single->name])}}">{{$single->name}}</a>
-                    @empty
-                    <p class="text-center">No Tutorials Yet</p>
-                    @endforelse
-                </div>
-            </div>
-            <div class="col-md-9 content">
-                @if($tutorial->id)
-                <h3 class="header">{{$tutorial->name}}</h3>
-                <hr>
-                <div class="tutorial-html">
-                    {!! $tutorial->description !!}
-                </div>
-                @else
-                <p>Tutorials will be added soon</p>
-                @endif
-            </div>
+            </nav>
         </div>
+
+        <main class="tutorial-screen">
+            <div>
+                <div class="row no-gutters">
+                    <div class="tutorial-list-container">
+                        <div class="list">
+                            <div class="header-container">
+                                <img src="{{asset($topic->image_url)}}" style="height: 60px">
+                                <h2 class="header">{{$topic->name}}</h2>
+                                <hr>
+                            </div>
+                            <div class="tutorial-list">
+                                @forelse($topic->tutorials->sortBy('order') as $single)
+                                <a class="@if(url()->current() == route('home.tutorials.specific',[$topic->name,$single->name])) active @endif"
+                                    href="{{route('home.tutorials.specific',[$topic->name,$single->name])}}">{{$single->name}}</a>
+                                @empty
+                                <p class="text-center">No Tutorials Yet</p>
+                                @endforelse
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        @if($tutorial->id)
+                        <h3 class="header">{{$tutorial->name}}</h3>
+                        <hr>
+                        <div class="tutorial-html">
+                            {!! $tutorial->description !!}
+                        </div>
+                        @else
+                        <p>Tutorials will be added soon</p>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </main>
+
     </div>
-</main>
-@endsection
+    <script src="{{mix('js/home.js')}}"></script>
+    <x-google-analytics></x-google-analytics>
+</body>
+
+</html>

@@ -13,45 +13,29 @@
 
 <body>
     <div class="home" id="app">
-        <nav class="p-2">
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="col-sm-3 col-md-4 brand">
-                    <a href="/" class="d-inline-flex align-items-center">
-                        <img src="{{asset('images/brand.png')}}" class="img-fluid" alt="">
-                        <p class="mb-0">Code Peeks</p>
+        <div class="navs">
+            <x-top-nav></x-top-nav>
+
+            <nav class="bottom-nav">
+                <div class="px-4 py-2 d-flex">
+                    <a onclick="$('.tutorial-list-container').toggleClass('show')" class="sidebar-toggle-button">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </a>
+                    <a href="/"><i class="fas fa-home"></i></a>
+                    @foreach($nav_topics as $topic)
+                    <a href="{{route('home.tutorials.default',$topic->name)}}">{{$topic->name}}</a>
+                    @endforeach
                 </div>
-                <div class="col-sm-8 col-md-6">
-                    <global-search></global-search>
-                </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
 
         @yield('main')
 
-        <footer>
-            <div class="copyrights">
-                <div class="container">
-                    <div class="d-flex align-items-center">
-                        <p>&copy;Copyrights 2021, Developed By <a href="https://github.com/egXcoder">AI</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
     </div>
     <script src="{{mix('js/home.js')}}"></script>
-    @if(App::environment('production'))
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1VE98Y6RMF"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-1VE98Y6RMF');
-    </script>
-    @endif
+   <x-google-analytics></x-google-analytics>
 </body>
 
 </html>

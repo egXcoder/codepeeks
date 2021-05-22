@@ -13,22 +13,17 @@ class TutorialController extends Controller
 {
     public function showDefaultTutorial(Topic $topic)
     {
-        if($tutorial = $topic->tutorials->sortBy('order')->first()){
-            return $this->showSpecificTutorial($topic,$tutorial);
+        if ($tutorial = $topic->tutorials->sortBy('order')->first()) {
+            return $this->showSpecificTutorial($topic, $tutorial);
         }
 
-        return view('home.tutorial', [
-            'topic'=>$topic,
-            'tutorial'=>new Tutorial(['id'=>0])
-        ]);
+        return $this->renderTutorialView($topic, new Tutorial(['id'=>0]));
     }
+
     public function showSpecificTutorial(Topic $topic, Tutorial $tutorial)
     {
         $this->recordView($tutorial);
-        return view('home.tutorial', [
-            'topic'=>$topic,
-            'tutorial'=>$tutorial
-        ]);
+        return $this->renderTutorialView($topic, $tutorial);
     }
 
     protected function recordView($tutorial)
@@ -36,6 +31,15 @@ class TutorialController extends Controller
         TutorialView::create([
             'tutorial_id'=>$tutorial->id,
             'created_at'=>date('Y-m-d H:i:s')
+        ]);
+    }
+
+    protected function renderTutorialView(Topic $topic, Tutorial $tutorial)
+    {
+        return view('home.tutorial', [
+            'topic'=>$topic,
+            'tutorial'=>$tutorial,
+            'nav_topics'=>Topic::orderBy('order')->take(3)->get()
         ]);
     }
 
