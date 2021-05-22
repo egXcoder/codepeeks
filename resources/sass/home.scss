@@ -210,12 +210,12 @@
                         text-transform: capitalize;
                         padding: 0.5rem;
                         transition: all 0.25s;
-                        font-size: 0.8rem;
+                        font-size: 0.7rem;
                         @media (min-width: 576px) {
-                            font-size: 0.9rem;
+                            font-size: 0.8rem;
                         }
                         @media (min-width: 768px) {
-                            font-size: 1rem;
+                            font-size: 0.9rem;
                         }
                         &:hover {
                             color: white;
