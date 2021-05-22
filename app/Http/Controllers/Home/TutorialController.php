@@ -13,7 +13,7 @@ class TutorialController extends Controller
 {
     public function showDefaultTutorial(Topic $topic)
     {
-        if($tutorial = $topic->tutorials->first()){
+        if($tutorial = $topic->tutorials->sortBy('order')->first()){
             return $this->showSpecificTutorial($topic,$tutorial);
         }
 
