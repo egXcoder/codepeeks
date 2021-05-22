@@ -10,6 +10,7 @@
     <meta name="theme-color" content="#62abe4">
     <meta property="og:image" itemprop="image" content="{{asset($topic->image_url)}}" />
     <meta property="twitter:image" itemprop="image" content="{{asset($topic->image_url)}}" />
+    <link rel="shortcut icon" type="image/jpg" href="{{asset('/images/favicon.ico')}}" />
 </head>
 
 <body>

@@ -14,6 +14,7 @@
         content="CodePeeks is a web application where you can reach peeks on various topics of software development" />
     <meta property="twitter:description"
         content="CodePeeks is a web application where you can reach peeks on various topics of software development" />
+    <link rel="shortcut icon" type="image/jpg" href="{{asset('/images/favicon.ico')}}" />
 </head>
 
 <body>
