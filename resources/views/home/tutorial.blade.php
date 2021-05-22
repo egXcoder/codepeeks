@@ -38,7 +38,7 @@
                     <div class="tutorial-list-container">
                         <div class="list">
                             <div class="header-container">
-                                <img src="{{asset($topic->image_url)}}" style="height: 60px">
+                                <img src="{{asset($topic->image_url)}}">
                                 <h2 class="header">{{$topic->name}}</h2>
                                 <hr>
                             </div>

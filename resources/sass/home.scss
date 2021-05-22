@@ -161,6 +161,15 @@
                     height: 25%;
                     .header {
                         text-transform: uppercase;
+                        @media screen and (max-width:576px){
+                            font-size: 1.2rem;
+                        }
+                    }
+                    img{
+                        height: 60px;
+                        @media screen and (max-width:576px){
+                            height:40px;
+                        }
                     }
                 }
                 .tutorial-list {
@@ -175,7 +184,7 @@
                         padding: 0.5rem;
                         transition: all 0.25s;
                         @media screen and (max-width:576px) {
-                            font-size: 11px;
+                            font-size: 13px;
                         }
                         &:hover {
                             color: white;
