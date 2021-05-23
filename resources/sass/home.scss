@@ -256,6 +256,11 @@
             .header {
                 text-transform: capitalize;
             }
+            .tutorial-html{
+                p{
+                    line-height: 1.5 !important;
+                }
+            }
         }
     }
 }
