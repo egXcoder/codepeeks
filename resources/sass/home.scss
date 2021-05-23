@@ -263,6 +263,10 @@
                 li{
                     line-height: 1.5 !important;
                 }
+                a{
+                    text-decoration: underline;
+                    color:var(--secondary-color);
+                }
             }
         }
     }
