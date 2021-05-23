@@ -40,7 +40,6 @@
                 ['style',['style']],
                 ['font',['bold','italic','underline','clear']],
                 ['fontsize', ['fontsize']],
-                ['fontname',['fontname']],
                 ['color',['color']],
                 ['para',['ul','ol','paragraph']],
                 ['height',['height']],
