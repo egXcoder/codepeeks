@@ -17,6 +17,17 @@
         @enderror
     </div>
 
+    <div class="form-group m-2">
+        <label for='short_description'>Short Description</label>
+        <input value="{{$tutorial->short_description ?? old('short_description')}}" name="short_description" type="text"
+            class="form-control @error('short_description') is-invalid @enderror" required autocomplete="off">
+        @error('short_description')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message}}</strong>
+        </span>
+        @enderror
+    </div>
+
     <div id="toolbar-container"></div>
     <!-- This container will become the editable. -->
     <div id="editor"></div>
@@ -35,9 +46,10 @@
     <button class="btn btn-primary m-2">Submit</button>
 </form>
 <style>
-    textarea,.note-editable{
+    textarea,
+    .note-editable {
         font-family: 'Segoe UI', sans-serif;
-        font-size:16px;
+        font-size: 16px;
         line-height: 1.5;
     }
 </style>

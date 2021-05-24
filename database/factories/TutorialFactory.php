@@ -24,6 +24,7 @@ class TutorialFactory extends Factory
     {
         return [
             'name'=>$this->faker->words(3, true),
+            'short_description'=>$this->faker->sentences(3,true),
             'description'=>$this->faker->paragraph(20),
             'order'=>rand(0, 1000),
             'topic_id'=>Topic::inRandomOrder()->first()->id,

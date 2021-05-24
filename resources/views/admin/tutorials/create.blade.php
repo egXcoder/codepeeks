@@ -16,6 +16,16 @@
     </div>
 
     <div class="form-group my-2">
+       <label for='short_description'>Short Description</label>
+       <input value="{{old('short_description')}}" name="short_description" type="text" class="form-control @error('short_description') is-invalid @enderror" required autocomplete="off">
+       @error('short_description')
+           <span class="invalid-feedback" role="alert">
+           <strong>{{ $message}}</strong>
+           </span>
+       @enderror
+    </div>
+
+    <div class="form-group my-2">
         <label for="">Description</label>
         <textarea name="description" rows="20" class="form-control @error('description') is-invalid @enderror">
          {!!old('description')!!}

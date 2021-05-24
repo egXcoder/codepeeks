@@ -44,6 +44,7 @@ class TutorialController extends Controller
     {
         request()->validate([
             'name'=> 'required|string',
+            'short_description'=>'required|string',
             'description'=>'required|string'
         ]);
 
@@ -51,6 +52,7 @@ class TutorialController extends Controller
 
         Tutorial::create([
             'name'=>request('name'),
+            'short_description'=>request('short_description'),
             'description'=>(new TutorialHtmlFixer(request('description')))->fix(),
             'topic_id'=>$topic->id,
             'order'=>($tutorial->order??0) +1
@@ -93,11 +95,13 @@ class TutorialController extends Controller
     {
         request()->validate([
             'name'=>'required|string',
+            'short_description'=>'required|string',
             'description'=>'required|string'
         ]);
 
         $tutorial->update([
             'name'=>request('name'),
+            'short_description'=>request('short_description'),
             'description'=> (new TutorialHtmlFixer(request('description')))->fix(),
         ]);
 

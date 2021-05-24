@@ -86,10 +86,13 @@ class TutorialManagementTest extends TestCase
     {
         $this->post(route('admin.tutorials.store', $this->topic->id), [
             'name'=>'hello',
+            'short_description'=>'short description',
             'description'=>'description'
         ]);
 
         $this->assertEquals('hello', Tutorial::first()->name);
+        $this->assertEquals('short description', Tutorial::first()->short_description);
+        $this->assertEquals('description', Tutorial::first()->description);
     }
 
     /** @test */
@@ -108,6 +111,7 @@ class TutorialManagementTest extends TestCase
 
         $this->put(route('admin.tutorials.update', [$this->topic->id,$tutorial->id]), [
             'name'=>'hello',
+            'short_description'=>'short_description',
             'description'=>'description'
         ]);
 
