@@ -39,9 +39,16 @@
 </style>
 <script>
     // Alternative to load event
-    document.onreadystatechange = function () {
+   document.onreadystatechange = function () {
         if (document.readyState === 'complete') {
             $('textarea').summernote({
+                styleTags: [
+                    'p',
+                    { title: 'Blockquote', tag: 'blockquote', className: 'blockquote', value: 'blockquote' },
+                    { title: 'Notice', tag: 'div', className: 'notice' , value:'div' },
+                    { title: 'Tip', tag: 'div', className: 'tip' , value:'div' },
+                    'pre', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
+                ],
                 fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '24'],
                 fontSizeUnits: ['px'],
                 toolbar:[

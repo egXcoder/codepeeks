@@ -3,8 +3,64 @@
         background: #eee;
         padding: 1rem;
         border-left: 4px solid var(--primary-color);
-        p{
+        p {
             margin-bottom: 0px !important;
+        }
+    }
+
+    .notice {
+        background-color: #d5e9f6;
+        color: #144261 !important;
+        padding: 1rem 3rem;
+        position: relative;
+        min-height: 60px;
+        margin: 1rem;
+        &::before {
+            font-family: "Font Awesome 5 Free","Font Awesome 5 Brands";
+            // font-family: "Font Awesome 5 Free";
+            content: "\f044";
+            font-size: 1.4rem;
+            top: 6px;
+            left: -10px;
+            color: white;
+            background-color: #47ade0;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+        }
+        p{
+            margin-bottom: 0px;
+        }
+    }
+
+    .tip {
+        background-color: #d5efc2;
+        color: #2e5014 !important;
+        padding: 1rem 3rem;
+        position: relative;
+        min-height: 60px;
+        margin: 1rem;
+        &::before {
+            font-family: "Font Awesome 5 Free","Font Awesome 5 Brands";
+            // font-family: "Font Awesome 5 Free";
+            content: "\f0eb";
+            font-size: 1.4rem;
+            top: 6px;
+            left: -10px;
+            color: white;
+            background-color: #92CD59;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+        }
+        p{
+            margin-bottom: 0px;
         }
     }
 }
