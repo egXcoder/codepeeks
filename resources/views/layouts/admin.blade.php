@@ -16,7 +16,6 @@
                 <div class="commands-container">
                     <a class="d-flex align-items-center p-2 header" href="{{route('admin.index')}}">
                         <img src="{{asset('images/brand.png')}}" style="height: 40px;text-align:center;">
-                        <p class="mb-0 text-decoration-none">Administration</p>
                     </a>
                     <div class="commands">
                         <a class="action @if(Route::currentRouteName() == 'admin.index') active @endif"
