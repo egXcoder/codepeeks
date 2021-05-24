@@ -63,6 +63,10 @@
                         @if($tutorial->id)
                         <h3 class="header">{{$tutorial->name}}</h3>
                         <hr>
+                        @if($tutorial->short_description)
+                            <p class="short-description">{{$tutorial->short_description}}</p>
+                            <hr>
+                        @endif
                         <div class="tutorial-html">
                             {!! $tutorial->description !!}
                         </div>

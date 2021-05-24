@@ -254,15 +254,20 @@
             padding: 1rem;
             margin-top: 125px;
             margin-left: 276px;
-            width: 100%;
+            width: calc(100% - 276px);
             @media (max-width: 576px) {
                 margin-top: 40px;
             }
             @media screen and (max-width: 768px) {
                 margin-left: 0px;
+                width: 100%;
             }
             .header {
                 text-transform: capitalize;
+            }
+            .short-description {
+                color: gray;
+                margin-bottom: 0px;
             }
             .tutorial-html {
                 p {
