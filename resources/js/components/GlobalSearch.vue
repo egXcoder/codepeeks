@@ -39,7 +39,6 @@ export default {
   mounted() {
     let handler = (event) => {
       let clicked = event.target;
-      console.log(clicked, $(clicked).parents(".search-container"));
       if (
         $(clicked).hasClass("search-container") ||
         $(clicked).parents(".search-container").length

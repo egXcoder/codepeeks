@@ -12,6 +12,7 @@
         z-index: 2;
         left: 0;
         right: 0;
+
         .top-nav {
             background-color: var(--nav-color);
             .brand {
@@ -141,11 +142,14 @@
             color: var(--primary-color);
             position: fixed;
             top: 0px;
-            padding-top: 120px;
+            padding-top: 105px;
             z-index: 1;
             height: 100%;
             width: 230px;
             transition: all 0.3s;
+            @media (max-width: 576px) {
+                padding-top: 40px;
+            }
             @media (min-width: 576px) {
                 width: 250px;
             }
@@ -218,11 +222,12 @@
                             font-size: 0.9rem;
                         }
                         &:hover {
-                            color: white;
-                            background-color: var(--secondary-color);
+                            color: black;
+                            background-color: rgb(224, 224, 224);
                         }
                         &.active {
                             background-color: var(--secondary-color);
+                            color: white;
                         }
                     }
 
@@ -250,22 +255,25 @@
             margin-top: 125px;
             margin-left: 276px;
             width: 100%;
+            @media (max-width: 576px) {
+                margin-top: 40px;
+            }
             @media screen and (max-width: 768px) {
                 margin-left: 0px;
             }
             .header {
                 text-transform: capitalize;
             }
-            .tutorial-html{
-                p{
+            .tutorial-html {
+                p {
                     line-height: 1.5 !important;
                 }
-                li{
+                li {
                     line-height: 1.5 !important;
                 }
-                a{
+                a {
                     text-decoration: underline;
-                    color:var(--secondary-color);
+                    color: var(--secondary-color);
                 }
             }
         }

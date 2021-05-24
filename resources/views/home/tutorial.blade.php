@@ -11,6 +11,13 @@
     <meta property="og:image" itemprop="image" content="{{asset($topic->image_url)}}" />
     <meta property="twitter:image" itemprop="image" content="{{asset($topic->image_url)}}" />
     <link rel="shortcut icon" type="image/jpg" href="{{asset('/images/favicon.ico')}}" />
+    <style>
+        @media (max-width: 576px) {
+            .top-nav {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -69,6 +76,23 @@
 
     </div>
     <script src="{{mix('js/home.js')}}"></script>
+    <script>
+        document.addEventListener('click', function () {
+            if($('.tutorial-list-container').hasClass('show')){
+                let clicked = event.target;
+                if ($(clicked).hasClass('tutorial-list-container') 
+                    || $(clicked).parents('.tutorial-list-container').length
+                    || $(clicked).hasClass('sidebar-toggle-button')
+                    || $(clicked).parents('.sidebar-toggle-button').length
+                ) {
+                    //we are clicking inside the sidebar or on the toggle button
+                    return;
+                }
+    
+                $('.tutorial-list-container').removeClass('show');
+            }
+        })
+    </script>
     <x-google-analytics></x-google-analytics>
 </body>
 
