@@ -34,26 +34,33 @@
 
     <button class="btn btn-primary m-2">Submit</button>
 </form>
-
+<style>
+    textarea,.note-editable{
+        font-family: 'Segoe UI', sans-serif;
+        font-size:16px;
+        line-height: 1.5;
+    }
+</style>
 <script>
     // Alternative to load event
     document.onreadystatechange = function () {
         if (document.readyState === 'complete') {
             $('textarea').summernote({
                 fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '24'],
+                fontSizeUnits: ['px'],
                 toolbar:[
                     ['pagebreak',['pagebreak']], // The Button
                     ['style',['style']],
-                    ['font',['bold','italic','underline','clear']],
-                    ['fontsize', ['fontsize']],
+                    ['font',['bold','italic','underline','clear','fontname', 'fontsize', 'fontsizeunit']],
                     ['color',['color']],
                     ['para',['ul','ol','paragraph']],
-                    ['height',['height']],
+                    // ['height',['height']],
                     ['table',['table']],
                     ['insert',['media','link','hr']],
                     ['view',['fullscreen','codeview']],
                     ['help',['help']]
                 ],
+                height:400,
             });
         }
     }
