@@ -275,6 +275,10 @@
                     text-decoration: underline;
                     color: var(--secondary-color);
                 }
+                img {
+                    max-width: 100%;
+                    height: auto;
+                }
             }
         }
     }

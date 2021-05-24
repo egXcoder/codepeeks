@@ -39,7 +39,7 @@
 </style>
 <script>
     // Alternative to load event
-   document.onreadystatechange = function () {
+    document.onreadystatechange = function () {
         if (document.readyState === 'complete') {
             $('textarea').summernote({
                 styleTags: [
@@ -63,6 +63,14 @@
                     ['view',['fullscreen','codeview']],
                     ['help',['help']]
                 ],
+                popover: {
+                image: [
+                    ['imagesize', ['imageSize100', 'imageSize50', 'imageSize25']],
+                    ['float', ['floatLeft', 'floatRight', 'floatNone']],
+                    ['remove', ['removeMedia']],
+                    ['custom', ['imageAttributes']],
+                    ],
+                },
                 height:400,
             });
         }
