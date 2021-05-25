@@ -16994,6 +16994,9 @@ readers do not read off random characters that represent icons */
 .admin .tip p {
   margin-bottom: 0px;
 }
+.admin hr {
+  border-top: 1px solid rgba(0, 0, 0, 0.3) !important;
+}
 .admin .header {
   text-decoration: none !important;
   background-color: var(--nav-color);

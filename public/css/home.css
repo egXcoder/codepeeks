@@ -16189,6 +16189,9 @@ readers do not read off random characters that represent icons */
 .home .tip p {
   margin-bottom: 0px;
 }
+.home hr {
+  border-top: 1px solid rgba(0, 0, 0, 0.3) !important;
+}
 .home .navs {
   position: fixed;
   top: 0;
