@@ -11,13 +11,12 @@
     .notice {
         background-color: #d5e9f6;
         color: #144261 !important;
-        padding: 1rem 3rem;
+        padding: 1rem 0rem 1rem 3rem;
         position: relative;
         min-height: 60px;
         margin: 1rem;
         &::before {
             font-family: "Font Awesome 5 Free","Font Awesome 5 Brands";
-            // font-family: "Font Awesome 5 Free";
             content: "\f044";
             font-size: 1.4rem;
             top: 6px;
@@ -39,13 +38,12 @@
     .tip {
         background-color: #d5efc2;
         color: #2e5014 !important;
-        padding: 1rem 3rem;
+        padding: 1rem 0rem 1rem 3rem;
         position: relative;
         min-height: 60px;
         margin: 1rem;
         &::before {
             font-family: "Font Awesome 5 Free","Font Awesome 5 Brands";
-            // font-family: "Font Awesome 5 Free";
             content: "\f0eb";
             font-size: 1.4rem;
             top: 6px;
