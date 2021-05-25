@@ -35,7 +35,7 @@
     <div class="form-group mx-2">
         <label for="description">Description</label>
         <textarea name="description"
-            class="form-control @error('description') is-invalid @enderror">{!!$tutorial->description ?? old('description')!!}</textarea>
+            class="form-control @error('description') is-invalid @enderror">{{$tutorial->description ?? old('description')}}</textarea>
         @error('description')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message}}</strong>
