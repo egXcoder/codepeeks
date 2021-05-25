@@ -39,7 +39,7 @@ class TutorialController extends Controller
         return view('home.tutorial', [
             'topic'=>$topic,
             'tutorial'=>$tutorial,
-            'nav_topics'=>Topic::orderBy('order')->take(3)->get()
+            'nav_topics'=>Topic::orderBy('order')->get()
         ]);
     }
 
