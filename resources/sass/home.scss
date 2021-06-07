@@ -149,7 +149,9 @@
                 position: relative;
                 box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
                 border-radius: 5px;
-                min-height: 360px;
+                @media(min-width:768px){
+                    min-height: 340px;
+                }
                 .count {
                     width: 40px;
                     height: 40px;
