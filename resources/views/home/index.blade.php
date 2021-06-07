@@ -37,7 +37,7 @@
                     <hr class="mt-0">
                     <div class="row">
                         @foreach($topics as $topic)
-                        <div class="col-md-4 col-sm-6">
+                        <div class="col-lg-4 col-sm-6">
                             <div class="topic">
                                 <span class="count">{{$topic->tutorials_count}}</span>
                                 <img src="/{{$topic->image_url}}" class="img-fluid">
